@@ -1,0 +1,24 @@
+<header>
+  <h5 mat-dialog-title>Iniciar novas entidades</h5>
+  <mat-icon aria-hidden="false" aria-label="close button" fontIcon="close"></mat-icon>
+</header>
+
+<mat-card appearance="outlined" class="card">
+  <mat-card-content class="card-content">
+    <div class="card-content-left">
+      <span>Entidades à iniciar</span>
+      <p>Após o início, os eventos serão disponibilizados para execução nos dias que estão definidos em seus ciclos.</p>
+    </div>
+    <div class="card-content-right">
+      <mat-form-field appearance="outline" class="input-field">
+        <input matInput type="number" min="1" [max]="maxAvailableEntities()" [value]="entities()" (input)="updateEntities($any($event.target).value)" />
+        <mat-icon class="input-icon" matPrefix>arrow_right</mat-icon>
+        <span matSuffix>Entidades</span>
+      </mat-form-field>
+      <p>
+        Novos eventos para hoje:
+        <strong>{{ newEventsToday() }} eventos</strong>
+      </p>
+    </div>
+  </mat-card-content>
+</mat-card>

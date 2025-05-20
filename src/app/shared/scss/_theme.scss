@@ -1,0 +1,108 @@
+@use '@angular/material' as mat;
+@use '../scss/mixins' as *;
+
+:root {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$green-palette,
+      ),
+      typography: Inter,
+    )
+  );
+  @include mat.form-field-overrides(
+    (
+      outlined-outline-color: #e6e6e6,
+      outlined-focus-outline-color: #e6e6e6,
+      outlined-hover-outline-color: #e6e6e6,
+      outlined-container-shape: 4px,
+      container-height: 40px,
+      leading-icon-color: #757575,
+      trailing-icon-color: #4f5351,
+    )
+  );
+  @include mat.form-field-density(
+    (
+      density: -4,
+    )
+  );
+  @include mat.button-overrides(
+    (
+      filled-container-shape: 4px,
+      outlined-container-shape: 4px,
+      filled-container-color: #00732f,
+      outlined-outline-color: #c9c9c9,
+      outlined-label-text-color: #3a3d3c,
+    )
+  );
+  @include mat.divider-overrides(
+    (
+      color: #d8d8d8,
+    )
+  );
+  @include mat.expansion-overrides(
+    (
+      container-background-color: #fff,
+      container-shape: 0,
+      header-hover-state-layer-color: none,
+    )
+  );
+  @include mat.table-overrides(
+    (
+      background-color: white,
+      row-item-outline-color: #e6e6e6,
+    )
+  );
+  @include mat.checkbox-overrides(
+    (
+      selected-checkmark-color: white,
+      selected-icon-color: #00732f,
+    )
+  );
+}
+
+.modal-backdrop {
+  background: #313131;
+}
+
+.modal-panel .mat-mdc-dialog-surface {
+  padding: 2rem 3rem;
+  border-radius: 0;
+  background: #fff;
+
+  @include sm {
+    padding: 2rem 1rem;
+  }
+}
+
+.mat-mdc-form-field-flex {
+  background: #fff !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: 0.5rem;
+}
+
+.mat-divider {
+  margin: 0.5rem 0 !important;
+}
+
+.mat-expansion-panel {
+  .mat-expansion-panel-header {
+    padding-left: 0 !important;
+  }
+
+  &:not([class*='mat-elevation-z']),
+  &:hover {
+    box-shadow: none !important;
+  }
+
+  .mat-expansion-panel-body {
+    padding: 0 !important;
+  }
+}
+
+thead {
+  display: none;
+}

@@ -1,0 +1,26 @@
+<entity-input />
+
+<mat-divider />
+<mat-dialog-content>
+  <mat-accordion>
+    <mat-expansion-panel #panel (expandedChange)="onToggle($event)">
+      <mat-expansion-panel-header>
+        <div class="custom-header-accordion">
+          <h6>Selecione ciclos <span>(opcional)</span></h6>
+          <mat-icon [class.rotated]="panel.expanded">expand_more</mat-icon>
+        </div>
+      </mat-expansion-panel-header>
+
+      <cycle-table />
+    </mat-expansion-panel>
+    @if (!isPanelOpen) {
+    <mat-divider />
+    }
+  </mat-accordion>
+
+  <events-chart />
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button>Fechar</button>
+  <button mat-flat-button>Iniciar novas entidades</button>
+</mat-dialog-actions>

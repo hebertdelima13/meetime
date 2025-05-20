@@ -1,0 +1,98 @@
+@use '../../shared/scss/mixins' as *;
+
+.desabilitado {
+  opacity: 0.5;
+}
+
+.text-tip {
+  font-size: 0.75rem;
+  letter-spacing: 0;
+}
+
+.table-columns-titles {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3.75rem;
+  margin-top: 2rem;
+
+  @include md {
+    display: none;
+  }
+
+  p {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #656866;
+    margin-bottom: 1rem;
+
+    &:first-of-type {
+      display: flex;
+      align-items: center;
+      color: #2eadf2;
+      gap: 0.625rem;
+      margin-left: 2rem;
+
+      mat-icon {
+        font-size: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+  }
+}
+
+.table-container {
+  border: 1px solid #e6e6e6;
+  border-radius: 1rem;
+
+  @include md {
+    margin-top: 2rem;
+  }
+
+  .table-header {
+    background: #f5f5f5;
+    border-radius: 1rem 1rem 0 0;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0.5rem 2rem;
+
+    span {
+      font-size: 0.75rem;
+      color: #656866;
+    }
+  }
+
+  table {
+    .mat-column-select {
+      width: 21.875rem;
+    }
+    td,
+    span {
+      text-align: center;
+      font-size: 0.75rem;
+      span > span:first-of-type {
+        opacity: 0.5;
+      }
+    }
+    .disabled-row {
+      opacity: 0.5;
+    }
+  }
+
+  .table-footer {
+    .table-footer-title {
+      background: #f5f5f5;
+      border-bottom: 1px solid #e6e6e6;
+      padding: 0.5rem 2rem;
+    }
+
+    span {
+      font-size: 0.75rem;
+      color: #656866;
+    }
+
+    .table-footer-content {
+      select-cycle-element {
+        padding: 0 1rem;
+      }
+    }
+  }
+}

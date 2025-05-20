@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  gap: 1rem;
+
+  mat-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    mat-icon {
+      font-size: 1.25rem;
+      height: 1.25rem;
+    }
+
+    p {
+      font-size: 0.75rem;
+    }
+  }
+
+  .priority-high {
+    color: #df514b;
+  }
+  .priority-medium {
+    color: #eca72f;
+  }
+  .priority-low {
+    color: #7cbf84;
+  }
+
+  .priority-disabled {
+    color: #6eb8d2;
+  }
+}

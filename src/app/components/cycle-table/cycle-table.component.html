@@ -1,0 +1,59 @@
+<span class="text-tip">Por padrão as entidades são selecionadas automaticamente de acordo com os ciclos que você participa e suas prioridades</span>
+
+<div class="table-columns-titles">
+  <p>Ciclos <mat-icon>keyboard_arrow_down</mat-icon></p>
+  <p>Selecionados/Disponíveis</p>
+  <p>Eventos para hoje</p>
+</div>
+
+<div class="table-container">
+  <div class="table-header">
+    <span>Ciclos com entidades disponíveis ({{ availableCycles().length }})</span>
+  </div>
+
+  <table mat-table [dataSource]="availableCycles()" class="w-full border rounded-md">
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let cycle">
+        <cycle-table-element
+          [isBold]="true"
+          [name]="cycle.name"
+          [priority]="cycle.priority"
+          [checked]="isChecked(cycle.name)"
+          (changed)="toggleCycle(cycle.name)"
+          [isDisabled]="isDisabledToday(cycle.name)"
+        />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="available">
+      <th mat-header-cell *matHeaderCellDef>Selecionados/Disponíveis</th>
+      <td mat-cell *matCellDef="let cycle">
+        <span> {{ getSelectedEntities(cycle) }} <span>/{{ cycle.availableEntities }}</span></span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="todayEvents">
+      <th mat-header-cell *matHeaderCellDef>Eventos para hoje</th>
+      <td mat-cell *matCellDef="let cycle">
+        <span>{{ getEventsForToday(cycle) }}</span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="{ 'desabilitado': isDisabledToday(row.name) }"></tr>
+  </table>
+  <div class="table-footer">
+    <div class="table-footer-title">
+      <span>Ciclos sem entidades disponíveis ({{ notAvailableCycles().length }})</span>
+    </div>
+    <div class="table-footer-content">
+      <mat-list>
+        @for(cycle of notAvailableCycles(); let i = $index; track i){ @if (cycle.availableEntities === 0) {
+
+        <cycle-table-element [isBold]="true" [showCheckbox]="false" [name]="cycle.name" [priority]="cycle.priority" [isDisabled]="isDisabledToday(cycle.name)" />
+        }}
+      </mat-list>
+    </div>
+  </div>
+</div>

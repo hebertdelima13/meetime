@@ -1,0 +1,87 @@
+@use '../../shared/scss/mixins' as *;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+
+  h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  mat-icon {
+    cursor: pointer;
+  }
+}
+
+.card {
+  background: #f4f4f4;
+  border: none;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+
+    @include md {
+      grid-template-columns: 1fr;
+      justify-items: normal;
+    }
+
+    .card-content-left {
+      p {
+        font-size: 0.75rem;
+        color: #4f5351;
+        line-height: 1.25rem;
+        margin-top: 0.5rem;
+      }
+
+      span {
+        font-weight: 600;
+        color: #242826;
+      }
+    }
+
+    .card-content-right {
+      p {
+        font-size: 0.75rem;
+        color: #4f5351;
+
+        strong {
+          font-size: inherit;
+        }
+      }
+
+      .input-field {
+        max-width: 18.75rem;
+
+        @include sm {
+          max-width: 13.75rem;
+        }
+
+        input {
+          padding: 0 0 0 1rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: #242826;
+        }
+
+        span {
+          font-size: 0.75rem;
+          background: #d9d9d9;
+          padding: 0.8rem 0.8rem;
+        }
+
+        .input-icon {
+          height: 2.5rem;
+          width: 2.5rem;
+          font-size: 2.5rem;
+          background: #d9d9d9;
+        }
+      }
+    }
+  }
+}

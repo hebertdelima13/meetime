@@ -1,0 +1,7 @@
+@if (showCheckbox()) {
+<mat-checkbox [checked]="checked()" (change)="toggleCycle(this.name()!)" [disabled]="isDisabled()"></mat-checkbox>
+}
+<mat-list-item>
+  <mat-icon matListItemIcon [ngClass]="getPriorityClass(priority())">{{iconName}}</mat-icon>
+  <p [style.font-weight]="isBold() ? '600' : '400'" matListItemTitle>{{ name() }}</p>
+</mat-list-item>
